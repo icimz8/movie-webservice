@@ -12,6 +12,10 @@ function App(){
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo("");
   }
+const deleteBtn = (event) => {
+  event.target.parentNode.remove();
+}
+
   return(
     <div>
       <h1>🛒check-list ({toDos.length})</h1>
@@ -24,7 +28,7 @@ function App(){
       </form>
       <hr/>
       {toDos.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>{item} <button onClick={deleteBtn}>❌</button></li>  
         ))}
     </div>
   )
